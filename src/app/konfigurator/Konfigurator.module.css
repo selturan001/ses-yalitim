@@ -1,0 +1,385 @@
+.main {
+    min-height: 100vh;
+    padding-top: 80px;
+    background-color: var(--color-bg-primary);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.heroBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.heroImage {
+    transition: transform 10s ease;
+}
+
+.hero:hover .heroImage {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+    z-index: 2;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 3;
+    padding: 0 20px;
+}
+
+.title {
+    font-size: clamp(1.75rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Configurator Layout */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Sidebar */
+.sidebar {
+    background: var(--color-bg-secondary);
+    padding: 30px;
+    border-radius: 16px;
+    position: sticky;
+    top: 100px;
+    border: 1px solid var(--color-border);
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.controlGroup {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.controlGroup:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.controlLabel {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 15px;
+    font-family: var(--font-header);
+}
+
+/* Dimension Inputs */
+.inputRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.inputLabel {
+    width: 70px;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.inputValue {
+    width: 60px;
+    text-align: right;
+    font-family: monospace;
+    font-size: 1rem;
+    color: var(--color-text-primary);
+}
+
+.slider {
+    flex: 1;
+    accent-color: var(--color-accent);
+}
+
+/* Color Options */
+.colorOptions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.colorOption {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.colorOption:hover {
+    transform: scale(1.1);
+}
+
+.colorOption.active {
+    border-color: var(--color-accent);
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+}
+
+.selectedColorName {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+/* Presets */
+.presets {
+    display: flex;
+    gap: 10px;
+}
+
+.presetBtn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid var(--color-border);
+}
+
+.fillBtn {
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
+
+.fillBtn:hover {
+    border-color: var(--color-accent);
+}
+
+.clearBtn {
+    background: rgba(255, 0, 0, 0.05);
+    color: #cc0000;
+    border-color: rgba(255, 0, 0, 0.1);
+}
+
+.clearBtn:hover {
+    background: rgba(255, 0, 0, 0.1);
+}
+
+/* Summary Card (inside Sidebar) */
+.summaryCard {
+    background: var(--color-bg-primary);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.summaryLabel {
+    color: var(--color-text-secondary);
+}
+
+.summaryValue {
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.totalPrice {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    font-weight: 800;
+}
+
+.orderButton {
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.orderButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Canvas Area */
+.canvasArea {
+    background: var(--color-bg-secondary);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+    border: 1px solid var(--color-border);
+}
+
+.canvasWrapper {
+    background: #fff;
+    padding: 2px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    /* Frame look */
+}
+
+.wallCanvas {
+    display: grid;
+    background-color: #f0f0f0;
+    gap: 1px;
+    /* Grid lines */
+    border: 1px solid #ddd;
+}
+
+.cell {
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cell:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.cell.filled {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Texture depth */
+}
+
+.canvasInfo {
+    margin-top: 20px;
+    display: flex;
+    gap: 30px;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.canvasInfo span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legendSquare {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.legendSquare.empty {
+    background: #fff;
+}
+
+@media (max-width: 1024px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: relative;
+        top: 0;
+        max-height: none;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem 2rem;
+    }
+
+    .canvasArea {
+        padding: 20px;
+        min-height: 400px;
+    }
+
+    .canvasWrapper {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        /* Force scroll */
+        -webkit-overflow-scrolling: touch;
+        display: block;
+        /* Ensure block layout for scrolling */
+        background: #fff;
+    }
+
+    .wallCanvas {
+        width: max-content;
+        /* Force grid to take full necessary width */
+        margin: 0 auto;
+        /* Center if smaller than screen */
+    }
+
+    /* Make sliders easier to touch */
+    .slider {
+        padding: 10px 0;
+    }
+
+    .inputRow {
+        flex-wrap: wrap;
+    }
+
+    .inputLabel {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}

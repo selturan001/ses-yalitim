@@ -1,0 +1,276 @@
+.main {
+    min-height: 100vh;
+    padding-top: 80px;
+    background-color: var(--color-bg-primary);
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    height: 60vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.heroBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+    z-index: 2;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 3;
+    padding: 0 20px;
+}
+
+.title {
+    font-size: clamp(1.75rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Sections Global */
+.sectionTitle {
+    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-header);
+}
+
+.text {
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Story Section */
+.storySection {
+    padding: 120px 0;
+}
+
+.storyGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.storyVisual {
+    position: relative;
+}
+
+.imageWrapper {
+    height: 500px;
+    width: 100%;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.2);
+}
+
+.storyBadge {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    z-index: 5;
+}
+
+.storyBadge span {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.storyBadge small {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+/* Values Section */
+.valuesSection {
+    padding: 100px 0;
+    background-color: var(--color-bg-secondary);
+}
+
+.valuesHeader {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 80px;
+}
+
+.valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.valueCard {
+    background: var(--color-bg-primary);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.valueCard:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.iconBox {
+    background: var(--color-bg-secondary);
+    color: var(--color-accent);
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 24px;
+}
+
+.valueCard h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: var(--color-text-primary);
+}
+
+.valueCard p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Creators Section */
+.creatorsSection {
+    padding: 120px 0;
+}
+
+.creatorsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.creatorsVisuals {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.creatorImgBox {
+    position: relative;
+    height: 300px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.creatorImgBox:nth-child(2) {
+    margin-top: 60px;
+    /* Offset effect */
+}
+
+.creatorList {
+    list-style: none;
+    margin: 30px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.creatorList li {
+    font-weight: 500;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-accent);
+    color: var(--color-bg-primary);
+    padding: 16px 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s;
+}
+
+.ctaButton:hover {
+    background: var(--color-accent-hover);
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+@media (max-width: 1024px) {
+
+    .storyGrid,
+    .creatorsGrid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .storyBadge {
+        width: 120px;
+        height: 120px;
+        bottom: -20px;
+        right: 20px;
+    }
+
+    .hero {
+        height: 50vh;
+    }
+}

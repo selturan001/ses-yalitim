@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 25px;
+    padding: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 40px;
+    /* Width of icon only */
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.expanded {
+    width: 240px;
+    /* Expanded width */
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.iconButton {
+    background: none;
+    border: none;
+    color: #fff;
+    /* White icon default */
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: color 0.2s;
+    flex-shrink: 0;
+}
+
+.iconButton:hover {
+    color: var(--color-accent, #F5A623);
+}
+
+.input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 0.95rem;
+    padding: 0 8px;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.expanded .input {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.input:focus {
+    outline: none;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.closeButton:hover {
+    color: #fff;
+}

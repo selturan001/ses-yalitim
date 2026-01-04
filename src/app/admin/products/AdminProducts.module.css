@@ -1,0 +1,137 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #111;
+    margin: 0;
+}
+
+.addButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.addButton:hover {
+    background-color: #333;
+}
+
+.tableWrapper {
+    background: #fff;
+    border: 1px solid #E5E5E5;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    background-color: #FAFAFA;
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #666;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.table td {
+    padding: 16px;
+    border-bottom: 1px solid #F0F0F0;
+    color: #333;
+    vertical-align: middle;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.thumb {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #f0f0f0;
+}
+
+.productName {
+    font-weight: 600;
+    color: #111;
+}
+
+.productSlug {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 2px;
+}
+
+.stock {
+    display: inline-block;
+    padding: 4px 8px;
+    background: #E8F5E9;
+    color: #2E7D32;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.lowStock {
+    background: #FFEBEE;
+    color: #C62828;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.actionBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    background: #fff;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.actionBtn:hover {
+    border-color: #000;
+    color: #000;
+}
+
+.deleteBtn:hover {
+    border-color: #d32f2f;
+    background-color: #d32f2f;
+    color: #fff;
+}
+
+.loading {
+    padding: 100px;
+    text-align: center;
+    color: #666;
+}

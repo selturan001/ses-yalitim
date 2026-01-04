@@ -1,0 +1,88 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #FAFAFA;
+    /* Light gray background */
+    border-right: 1px solid #E5E5E5;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    padding: 24px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.logo h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111;
+    margin: 0;
+}
+
+.nav {
+    flex: 1;
+    padding: 24px 16px;
+}
+
+.navList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.link:hover {
+    background-color: #F0F0F0;
+    color: #111;
+}
+
+.link.active {
+    background-color: #E6F3FF;
+    /* Use a brand color tint if available */
+    color: #0070F3;
+    font-weight: 600;
+}
+
+.footer {
+    padding: 24px;
+    border-top: 1px solid #E5E5E5;
+}
+
+.logoutBtn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    color: #FF4444;
+    cursor: pointer;
+    font-size: inherit;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.logoutBtn:hover {
+    background-color: #FFF0F0;
+}

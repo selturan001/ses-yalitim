@@ -1,0 +1,40 @@
+/* content.module.css for legal pages */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: var(--color-text-secondary);
+}
+
+.title {
+    font-size: 2rem;
+    color: var(--color-text-primary);
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 15px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    font-size: 1.3rem;
+    color: var(--color-text-primary);
+    margin-bottom: 15px;
+}
+
+.section p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.section ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.section li {
+    margin-bottom: 8px;
+}

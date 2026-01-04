@@ -1,0 +1,97 @@
+.section {
+    padding: 100px 0;
+    position: relative;
+    background-color: var(--color-bg-secondary);
+    /* Light Gray Background for Alternating Effect */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+    /* Use global black/gray */
+}
+
+.subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+}
+
+.faqItem {
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 1rem;
+}
+
+.question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    background: none;
+    border: none;
+    color: var(--color-text-primary);
+    /* Dark text */
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+.question:hover {
+    color: var(--color-accent);
+}
+
+.icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: transform 0.3s ease;
+    color: var(--color-text-muted);
+}
+
+.active .icon {
+    transform: rotate(45deg);
+    color: var(--color-text-primary);
+}
+
+.answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.active .answer {
+    max-height: 500px;
+    /* Arbitrary large height */
+    transition: max-height 0.5s ease-in;
+}
+
+.answerText {
+    padding-bottom: 1.5rem;
+    color: var(--color-text-secondary);
+    /* Gray text */
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .header {
+        margin-bottom: 2rem;
+    }
+}

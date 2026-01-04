@@ -1,0 +1,105 @@
+.section {
+    padding: 120px 0;
+    background-color: var(--color-bg-primary);
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.title {
+    font-size: 3rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+}
+
+
+
+.description {
+    color: var(--color-text-secondary);
+    font-size: 1.25rem;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.valueGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.valueItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iconWrapper {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-bg-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--color-accent);
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+}
+
+.valueTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.valueText {
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .valueGrid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+.button {
+    display: inline-block;
+    padding: 1.25rem 3.5rem;
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+    font-family: var(--font-header);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+}

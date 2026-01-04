@@ -1,0 +1,141 @@
+.section {
+    padding: 120px 0;
+    background-color: var(--color-bg-primary);
+    /* White background for the section */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.title {
+    font-size: 3rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background-color: var(--color-bg-secondary);
+    /* Light gray card background */
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    /* Softer shadow */
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.imageWrapper {
+    height: 250px;
+    /* Fixed height for image part */
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.cardImage {
+    transition: transform 0.6s ease;
+}
+
+.card:hover .cardImage {
+    transform: scale(1.05);
+}
+
+.cardOverlay {
+    display: none;
+    /* No overlay needed for light theme */
+}
+
+.cardContent {
+    position: relative;
+    /* Normal flow */
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.cardTitle {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    /* Dark text */
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.cardDescription {
+    color: var(--color-text-secondary);
+    /* Gray text */
+    font-size: 0.95rem;
+    line-height: 1.5;
+    transform: none;
+    /* Always visible */
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 80px 0;
+    }
+
+    .card {
+        height: auto;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .cardTitle {
+        white-space: normal;
+    }
+
+    .header {
+        margin-bottom: 3rem;
+    }
+}

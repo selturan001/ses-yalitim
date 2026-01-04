@@ -1,0 +1,113 @@
+/* Dashboard.module.css */
+.main {
+    min-height: 100vh;
+    padding: 120px 20px 80px;
+    background: var(--color-bg-primary);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 2rem;
+    color: var(--color-text-primary);
+}
+
+.logoutBtn {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.logoutBtn:hover {
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
+.section {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.sectionTitle {
+    font-size: 1.2rem;
+    color: var(--color-text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.userInfo {
+    display: grid;
+    gap: 12px;
+    color: var(--color-text-secondary);
+}
+
+.ordersTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ordersTable th {
+    text-align: left;
+    padding: 12px;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.ordersTable td {
+    padding: 16px 12px;
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.status_PENDING {
+    background: rgba(241, 196, 15, 0.1);
+    color: #f1c40f;
+}
+
+.status_PAID {
+    background: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+}
+
+.status_SHIPPED {
+    background: rgba(52, 152, 219, 0.1);
+    color: #3498db;
+}
+
+.empty {
+    text-align: center;
+    padding: 40px;
+    color: var(--color-text-secondary);
+}
+
+.browseLink {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
