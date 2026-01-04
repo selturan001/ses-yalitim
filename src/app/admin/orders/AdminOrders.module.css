@@ -1,47 +1,50 @@
-/* AdminOrders.module.css */
-.main {
-    min-height: 100vh;
-    padding-top: 100px;
-    padding-bottom: 60px;
-    background: var(--color-bg-primary);
-    color: var(--color-text-primary);
-}
-
 .container {
-    max-width: 1200px;
+    padding: 2rem;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
-.title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 16px;
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
-.refreshButton {
-    padding: 8px 16px;
-    background: var(--color-bg-secondary);
-    border: 1px solid var(--color-border);
+.header h1 {
+    font-size: 2rem;
     color: var(--color-text-primary);
-    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--color-text-secondary);
+}
+
+.refreshBtn {
+    padding: 0.8rem 1.5rem;
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: 600;
     transition: all 0.2s;
 }
 
-.refreshButton:hover {
+.refreshBtn:hover {
     border-color: var(--color-accent);
     color: var(--color-accent);
 }
 
-.tableContainer {
-    background: var(--color-bg-secondary);
+.tableCard {
+    background: var(--color-bg-primary);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+}
+
+.tableWrapper {
     overflow-x: auto;
 }
 
@@ -51,71 +54,162 @@
     font-size: 0.95rem;
 }
 
-.table th,
-.table td {
-    padding: 16px;
+.table th {
     text-align: left;
+    padding: 1.2rem 1.5rem;
+    background: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+    font-weight: 600;
     border-bottom: 1px solid var(--color-border);
 }
 
-.table th {
-    background: rgba(255, 255, 255, 0.03);
-    color: var(--color-text-secondary);
-    font-weight: 500;
-}
-
-.table tr:last-child td {
-    border-bottom: none;
-}
-
-.status {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.status-PAID {
-    background: rgba(46, 204, 113, 0.15);
-    color: #2ecc71;
-}
-
-.status-PENDING {
-    background: rgba(241, 196, 15, 0.15);
-    color: #f1c40f;
-}
-
-.detailsButton {
-    padding: 6px 12px;
-    background: transparent;
-    border: 1px solid var(--color-border);
-    color: var(--color-text-secondary);
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.85rem;
-}
-
-.detailsButton:hover {
+.table td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
     color: var(--color-text-primary);
-    border-color: var(--color-text-primary);
 }
 
-/* Modal if we decide to show details, or just expanded row */
-.itemsRow {
-    background: rgba(0, 0, 0, 0.2);
+.activeRow {
+    background-color: var(--color-bg-secondary);
 }
 
-.itemsList {
-    padding: 16px;
+.mono {
+    font-family: monospace;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+.customerName {
+    font-weight: 500;
+}
+
+.date {
+    font-weight: 500;
+}
+
+.time {
+    color: var(--color-text-secondary);
+}
+
+.price {
+    font-weight: 700;
+}
+
+.statusWrapper {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    align-items: center;
+    gap: 10px;
 }
 
-.item {
+.statusSelect {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid;
+    background: transparent;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.iconBtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    padding: 5px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.iconBtn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--color-text-primary);
+}
+
+/* Details Row */
+.detailsRow td {
+    background: var(--color-bg-secondary);
+    padding: 0;
+}
+
+.detailsContainer {
+    padding: 2rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.detailsTitle {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+}
+
+.itemsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.itemCard {
+    background: var(--color-bg-primary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.itemHeader {
+    display: flex;
+    flex-direction: column;
+}
+
+.itemName {
+    font-weight: 600;
+}
+
+.itemQty {
     font-size: 0.9rem;
     color: var(--color-text-secondary);
+}
+
+.itemPrice {
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.emptyState {
+    text-align: center;
+    padding: 4rem !important;
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 1rem;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
 }

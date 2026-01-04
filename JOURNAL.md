@@ -111,3 +111,63 @@ npm run build
 npx prisma migrate dev
 npx prisma db seed
 ```
+### 4. Vercel Dağıtımı ve Mobil Optimizasyon (4 Ocak 2026 Akşam Seansı) ✅
+
+**Kritik Geliştirmeler:**
+
+**A. Mobil UI/UX İyileştirmeleri:**
+- **Konfigüratör:**
+    - Geniş duvarlarda yana kaydırma (horizontal scroll) sorunu çözüldü (`overflow-x: auto`).
+    - Mobil dokunmatik hassasiyeti için kutucuk boyutları min 40px'e sabitlendi.
+    - Gereksiz paddingler kaldırıldı.
+- **Tipografi:**
+    - Mobilde devasa başlıklar küçültüldü (`clamp` fonksiyonu ile).
+    - Ürün detay sayfasında "Sepete Ekle" butonu mobilde tam genişlik yapıldı.
+- **Navbar:**
+    - Hamburger menü ikonu görünürlüğü (beyaz renk) düzeltildi.
+    - Linklere tıklandığında menünün otomatik kapanması sağlandı.
+- **Footer:**
+    - Modernize edildi.
+    - E-bülten (Newsletter) alanı eklendi.
+    - Güven rozetleri (SSL, Masterpass vb.) eklendi.
+
+**B. Vercel Deployment Savaşı (Troubleshooting Log):**
+Bu aşamada Vercel'in "Serverless" yapısı ve SQLite ile çalışmanın zorlukları aşıldı.
+
+1.  **Sorun:** Vercel "To get started" boş sayfası gösteriyor.
+    *   **Sebep:** Git kimlik bilgileri eksik olduğu için kodlar aslında GitHub'a gitmemişti.
+    *   **Çözüm:** `git config` ayarlandı ve 134 dosya push edildi.
+2.  **Sorun:** Build Failed (`PrismaClientInitializationError`).
+    *   **Sebep:** Vercel varsayılan olarak `prisma generate` çalıştırmaz.
+    *   **Çözüm:** `package.json` -> `"build": "prisma generate && next build"`
+3.  **Sorun:** Site açıldı ama Ürünler YOK (Boş Liste).
+    *   **Sebep:** Vercel deployment sırasında veritabanı dosyamızı (`dev.db`) görmezden geldi veya boş dosya oluştu.
+    *   **Çözüm:** Build sırasında veritabanını sıfırdan oluşturup doldurma komutu eklendi:
+    *   `"build": "prisma generate && prisma db push && prisma db seed && next build"`
+4.  **Sorun:** Build Failed (`Environment variable not found: DATABASE_URL`).
+    *   **Sebep:** Vercel panelinden env var eklemek yerine koddan çözüm aradık.
+    *   **Çözüm:** `schema.prisma` dosyasında `url = "file:./dev.db"` hardcode edildi.
+5.  **Sorun:** Site açıldı, build başarılı ama ürünler HALA yok.
+    *   **Sebep:** (En Kritik) Vercel "Runtime" (çalışma anı) serverless fonksiyonları, build klasöründeki her dosyayı yanına almaz. `dev.db` dosyasını geride bırakıyordu.
+    *   **Çözüm:** `next.config.ts` dosyasına `outputFileTracingIncludes` eklenerek `dev.db` dosyasının API fonksiyonlarına kopyalanması zorunlu kılındı.
+
+**Vercel İçin Kritik Kod Bloğu (`next.config.ts`):**
+```typescript
+const nextConfig: NextConfig = {
+  serverExternalPackages: ['iyzipay'],
+  outputFileTracingIncludes: {
+    '/api/**/*': ['./dev.db', './prisma/dev.db'],
+  },
+};
+```
+
+**Sonuç:** Site şu an `https://ses-yalitim.vercel.app` adresinde, içi dolu veritabanı ile ve mobil uyumlu şekilde yayında. 🚀
+
+---
+
+## Sonraki Adımlar (Admin Paneli)
+
+1.  **Admin Giriş Ekranı:** `/admin/login` (Mevcut, geliştirilecek)
+2.  **Dashboard:** Sipariş özetlerini gösteren ana ekran.
+3.  **Sipariş Yönetimi:** Sipariş durumunu değiştirme (Hazırlanıyor, Kargolandı vb.).
+4.  **Ürün Yönetimi:** Yeni ürün ekleme, fiyat güncelleme.
