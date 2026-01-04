@@ -30,37 +30,52 @@
     font-weight: 300;
 }
 
+/* Modern Product Description Card */
 .productDescription {
-    margin-top: 2.5rem;
-    padding: 2rem;
-    background: var(--color-bg-secondary);
-    border-radius: 12px;
-    border: 1px solid var(--color-border);
-    animation: fadeIn 0.8s ease-out;
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background: #fff;
+    /* Clean white card */
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    /* Soft premium shadow */
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    /* Better readability */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative accent line */
+.productDescription::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--color-accent);
 }
 
 .productDescription strong {
     display: block;
-    font-size: 1.2rem;
-    color: var(--color-accent);
-    margin-bottom: 0.8rem;
+    font-size: 1.35rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
     font-weight: 700;
+    letter-spacing: -0.01em;
+    font-family: var(--font-heading);
 }
 
 .productDescription p {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--color-text-primary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    /* Softer reading capability */
     font-weight: 400;
-}
-
-/* Make inner strong tags within P tag slightly distinct but not header-like */
-.productDescription p strong {
-    display: inline;
-    color: var(--color-text-primary);
-    font-weight: 600;
-    margin: 0;
-    font-size: inherit;
 }
 
 @keyframes fadeIn {
@@ -75,16 +90,20 @@
     }
 }
 
+/* Grid Layout Fix */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    /* Force 4 columns on large screens to avoid the 3-up-1-down orphan issue */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
 }
 
 .card {
     position: relative;
-    height: 480px;
-    border-radius: 12px;
+    height: 420px;
+    /* Slightly shorter for better proportions */
+    border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
     background: #000;
@@ -97,13 +116,17 @@
 }
 
 .cardImage {
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .cardOverlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
+    /* Enhanced gradient for better text readability */
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(0, 0, 0, 0.4) 50%,
+            rgba(0, 0, 0, 0) 100%);
     transition: opacity 0.3s;
 }
 
@@ -112,10 +135,11 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 2.5rem;
+    padding: 2rem;
     color: #fff;
-    transform: translateY(20px);
+    transform: translateY(10px);
     transition: transform 0.4s ease;
+    z-index: 2;
 }
 
 .cardTitle {
@@ -125,18 +149,19 @@
     font-family: var(--font-heading);
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .cardDescription {
     font-size: 0.95rem;
-    opacity: 0.8;
+    opacity: 0.9;
     line-height: 1.5;
-    max-width: 90%;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Hover Effects */
 .card:hover .cardImage {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .card:hover .cardContent {
@@ -147,17 +172,34 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.3) 100%);
 }
 
+@media (max-width: 1200px) {
+
+    /* Switch to 2x2 on medium screens - perfectly balanced */
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
     .title {
         font-size: clamp(1.75rem, 5vw, 2rem);
     }
 
-    .productDescription {
-        padding: 1.5rem;
-        margin-top: 2rem;
-    }
-
     .card {
         height: 400px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    /* Stack on mobile */
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .productDescription {
+        padding: 1.5rem;
+        text-align: left;
     }
 }
