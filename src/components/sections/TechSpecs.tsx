@@ -48,7 +48,6 @@ const TechSpecs = () => {
                                     <span className={styles.value}>Antrasit Siyah / Opsiyonel Renkler</span>
                                 </div>
                             </div>
-                            {/* Acoustic and Material groups continue here... */}
 
                             <div className={styles.specGroup}>
                                 <h3 className={styles.groupTitle}>Akustik Performans</h3>
@@ -84,9 +83,19 @@ const TechSpecs = () => {
                         </div>
 
                         <div className={styles.certifications}>
-                            {/* Future placeholder for ISO/CE logos if needed */}
                             <p className={styles.note}>*ISO 9001 standartlarında üretilmiştir.</p>
                         </div>
+                    </div>
+                </div>
+
+                <div className={styles.techDescription}>
+                    <div className={styles.techDescriptionContent}>
+                        <h3>Açık Gözenekli Hücre Teknolojisi</h3>
+                        <p>
+                            Air Mesh paneller, sesi yüzeyde çarptırıp geri yansıtmak yerine, mikroskobik gözeneklerine hapseder.
+                            Ses dalgaları bu tünellerde ilerlerken sürtünme ile ısı enerjisine dönüşür ve yok olur.
+                            <strong>İşte sessizliğin arkasındaki bilim budur.</strong>
+                        </p>
                     </div>
                 </div>
             </div>
