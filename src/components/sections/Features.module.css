@@ -1,141 +1,163 @@
 .section {
-    padding: 120px 0;
-    background-color: var(--color-bg-primary);
-    /* White background for the section */
+    padding: 6rem 0;
+    background: var(--color-bg-primary);
 }
 
 .container {
+    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .title {
     font-size: 3rem;
-    color: var(--color-text-primary);
     margin-bottom: 1rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    font-family: var(--font-heading);
 }
 
 .subtitle {
-    color: var(--color-text-secondary);
     font-size: 1.25rem;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
+    color: var(--color-text-secondary);
+    font-weight: 300;
+}
+
+.productDescription {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background: var(--color-bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.productDescription strong {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--color-accent);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.productDescription p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    font-weight: 400;
+}
+
+/* Make inner strong tags within P tag slightly distinct but not header-like */
+.productDescription p strong {
+    display: inline;
+    color: var(--color-text-primary);
+    font-weight: 600;
+    margin: 0;
+    font-size: inherit;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
-@media (max-width: 1200px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 .card {
-    background-color: var(--color-bg-secondary);
-    /* Light gray card background */
-    border-radius: 20px;
+    position: relative;
+    height: 480px;
+    border-radius: 12px;
     overflow: hidden;
-    border: 1px solid transparent;
-    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-    height: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    /* Softer shadow */
-    border-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    background: #000;
 }
 
 .imageWrapper {
-    height: 250px;
-    /* Fixed height for image part */
     position: relative;
-    overflow: hidden;
     width: 100%;
+    height: 100%;
 }
 
 .cardImage {
-    transition: transform 0.6s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+.cardOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
+    transition: opacity 0.3s;
+}
+
+.cardContent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem;
+    color: #fff;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.cardDescription {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    line-height: 1.5;
+    max-width: 90%;
+}
+
+/* Hover Effects */
 .card:hover .cardImage {
     transform: scale(1.05);
 }
 
-.cardOverlay {
-    display: none;
-    /* No overlay needed for light theme */
+.card:hover .cardContent {
+    transform: translateY(0);
 }
 
-.cardContent {
-    position: relative;
-    /* Normal flow */
-    padding: 2rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.cardTitle {
-    font-size: 1.25rem;
-    color: var(--color-text-primary);
-    /* Dark text */
-    margin-bottom: 0.75rem;
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.cardDescription {
-    color: var(--color-text-secondary);
-    /* Gray text */
-    font-size: 0.95rem;
-    line-height: 1.5;
-    transform: none;
-    /* Always visible */
-    opacity: 1;
+.card:hover .cardOverlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.3) 100%);
 }
 
 @media (max-width: 768px) {
-    .section {
-        padding: 80px 0;
+    .title {
+        font-size: clamp(1.75rem, 5vw, 2rem);
+    }
+
+    .productDescription {
+        padding: 1.5rem;
+        margin-top: 2rem;
     }
 
     .card {
-        height: auto;
-    }
-
-    .title {
-        font-size: 2rem;
-    }
-
-    .cardTitle {
-        white-space: normal;
-    }
-
-    .header {
-        margin-bottom: 3rem;
+        height: 400px;
     }
 }

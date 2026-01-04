@@ -35,6 +35,14 @@ const Features = () => {
                     <p className={styles.subtitle}>
                         Sadece bir sünger değil, mekanınızın atmosferini değiştiren bir dokunuş.
                     </p>
+                    <div className={styles.productDescription}>
+                        <strong>ARNEE Air Mesh Akustik Panel Nedir?</strong>
+                        <p>
+                            Özel geliştirilmiş petek dokusu ve yüksek yoğunluklu yapısıyla <strong>sesi yutan, yankıyı %90'a kadar azaltan</strong> dekoratif duvar panelidir.
+                            Yapıştır-Uygula kolaylığıyla, profesyonel ses yalıtımını şık bir tasarımla birleştirir.
+                            Sadece bir yalıtım malzemesi değil, duvarınızın yeni sanat eseridir.
+                        </p>
+                    </div>
                 </div>
 
                 <div className={styles.grid}>
